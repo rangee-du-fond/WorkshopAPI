@@ -1,0 +1,44 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "api for mspr",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "start": "node dist/src/core/index.js",
+    "dev": "dotenv -- ts-node-dev --respawn --transpileOnly src/core/index.ts",
+    "test": "dotenv -e .env.test -- jest --watch ts$",
+    "test:ci": "jest --runInBand --ci --coverage ts$",
+    "lint": "tslint -c tslint.json src/**/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rangee-du-fond/api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rangee-du-fond/api/issues"
+  },
+  "homepage": "https://github.com/rangee-du-fond/api#readme",
+  "devDependencies": {
+    "@types/hapi__hapi": "^19.0.0",
+    "@types/hapi__inert": "^5.2.0",
+    "@types/hapi__vision": "^5.5.1",
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.9.1",
+    "@types/pg": "^7.14.3",
+    "dotenv-cli": "^3.1.0",
+    "jest": "^25.1.0",
+    "ts-jest": "^25.0.0",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "tslint": "^6.1.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^19.0.5",
+    "@hapi/inert": "^6.0.1",
+    "@hapi/vision": "^6.0.0",
+    "hapi-swagger": "^12.1.1",
+    "pg": "^8.0.0"
+  }
+}
