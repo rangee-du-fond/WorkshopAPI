@@ -9,7 +9,6 @@ export const registerHelloRoutes = (server: Server) => {
       description: 'route that returns hello world',
     },
     handler: (req, h) => {
-      // cast to any to avoid typescript type error
       return { message: 'hello world!' };
     },
   });
