@@ -7,6 +7,7 @@ type Env = {
  * Will print missing env variables, and default value if they have one
  * Will throw an error if a missing env variable has no default value
  * @param expectedEnv list of all the variable to check {name: string, default: string}
+ * @throw { message: string }
  */
 export const checkMissingEnvVariables = (expectedEnv: Env[]) => {
   const undefinedEnvVariables = expectedEnv.filter(env => {

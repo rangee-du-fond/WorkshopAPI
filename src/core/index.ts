@@ -1,7 +1,6 @@
 import { initServer } from './server';
 import { checkMissingEnvVariables } from './env-check';
-import { createConfig } from './config';
-import { expectedEnvVariables } from './expected-env';
+import { config, expectedEnvVariables } from './config';
 
 process.on('unhandledRejection', err => {
   console.error(err);
@@ -10,7 +9,7 @@ process.on('unhandledRejection', err => {
 
 checkMissingEnvVariables(expectedEnvVariables);
 
-initServer(createConfig(expectedEnvVariables)).then(async server => {
+initServer(config()).then(async server => {
   await server.start();
   console.log('Server running on %s', server.info.uri);
 });

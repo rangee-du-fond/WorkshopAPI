@@ -1,8 +1,20 @@
-import { EnvVar, Config } from './core.d';
-import { getEnvDefaultValue } from './expected-env';
+type EnvVar = {
+  name: string;
+  default?: string;
+};
 
-export const createConfig = (expectedEnvVariables: EnvVar[]): Config => {
+export type Config = {
+  serverPort: string;
+};
+
+export const expectedEnvVariables: EnvVar[] = [{ name: 'PORT', default: '3000' }];
+
+const getDefaultValue = (entries: EnvVar[], varName: string) => {
+  return entries.find(env => env.name === varName).default;
+};
+
+export const config = (): Config => {
   return {
-    serverPort: process.env.PORT || getEnvDefaultValue(expectedEnvVariables, 'PORT'),
+    serverPort: process.env.PORT || getDefaultValue(expectedEnvVariables, 'PORT'),
   };
 };

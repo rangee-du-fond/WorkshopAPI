@@ -1,10 +1,10 @@
-import { Config } from './core.d';
 import * as Inert from '@hapi/inert';
 import * as Vision from '@hapi/vision';
 import * as HapiSwagger from 'hapi-swagger';
 import * as Pack from '../../package.json';
 import { Server } from '@hapi/hapi';
 import { registerHelloRoutes } from '../hello/hello.routes';
+import { Config } from './config';
 
 export const initServer = async (config: Config): Promise<Server> => {
   const server: Server = new Server({
