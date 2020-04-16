@@ -1,5 +1,5 @@
 import { db } from '../core/db';
-import type { Theme } from '../themes/theme';
+import type { Theme } from './theme';
 
 export const getThemesByLevel = (levelId: string): Promise<Theme[]> => {
   const stmt = `

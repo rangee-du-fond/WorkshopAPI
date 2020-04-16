@@ -1,6 +1,6 @@
 import { Server } from '@hapi/hapi';
 import { getAllLevels } from './levels.controller';
-import { getThemesByLevel } from '../courses/courses.controller';
+import { getThemesByLevel } from '../themes/themes.controller';
 import Joi = require('@hapi/joi');
 
 export const registerLevelsRoutes = (server: Server) => {

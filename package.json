@@ -7,7 +7,7 @@
     "start": "node dist/src/core/index.js",
     "dev": "dotenv -- ts-node-dev --respawn --transpileOnly src/core/index.ts",
     "test": "dotenv -e .env.test -- jest --watch ts$",
-    "test:ci": "jest --runInBand --ci --coverage ts$",
+    "test:ci": "jest --runInBand --ci --coverage --passWithNoTests ts$",
     "lint": "tslint -c tslint.json src/**/*.ts"
   },
   "repository": {
