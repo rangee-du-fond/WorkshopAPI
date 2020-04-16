@@ -4,7 +4,7 @@ import * as HapiSwagger from 'hapi-swagger';
 import * as Pack from '../../package.json';
 import { Server } from '@hapi/hapi';
 import { registerHelloRoutes } from '../hello/hello.routes';
-import { registerLevelsRoutes } from '../levels/level.routes';
+import { registerLevelsRoutes } from '../levels/levels.routes';
 
 export const initServer = async (config): Promise<Server> => {
   const server: Server = new Server({
