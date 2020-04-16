@@ -12,7 +12,7 @@ export const registerLevelsRoutes = (server: Server) => {
       description: 'returns all levels supported',
     },
     handler: (req, h) => {
-      return getAllLevels();
+      return getAllLevels().catch(console.error);
     },
   });
 
