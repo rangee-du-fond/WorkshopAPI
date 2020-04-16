@@ -4,6 +4,7 @@ import * as HapiSwagger from 'hapi-swagger';
 import * as Pack from '../../package.json';
 import { Server } from '@hapi/hapi';
 import { registerLevelsRoutes } from '../levels/levels.routes';
+import { registerCoursesRoutes } from '../courses/courses.routes';
 
 export const initServer = async (config): Promise<Server> => {
   const server: Server = new Server({
@@ -29,6 +30,7 @@ export const initServer = async (config): Promise<Server> => {
   await server.register(plugins);
 
   registerLevelsRoutes(server);
+  registerCoursesRoutes(server);
 
   return server;
 };
