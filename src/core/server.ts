@@ -4,9 +4,9 @@ import * as HapiSwagger from 'hapi-swagger';
 import * as Pack from '../../package.json';
 import { Server } from '@hapi/hapi';
 import { registerHelloRoutes } from '../hello/hello.routes';
-import { Config } from './config';
+import { registerLevelsRoutes } from '../levels/level.routes';
 
-export const initServer = async (config: Config): Promise<Server> => {
+export const initServer = async (config): Promise<Server> => {
   const server: Server = new Server({
     port: config.serverPort,
     routes: {
@@ -30,6 +30,7 @@ export const initServer = async (config: Config): Promise<Server> => {
   await server.register(plugins);
 
   registerHelloRoutes(server);
+  registerLevelsRoutes(server);
 
   return server;
 };
