@@ -3,6 +3,7 @@ import * as Vision from '@hapi/vision';
 import * as HapiSwagger from 'hapi-swagger';
 import * as Pack from '../../package.json';
 import { Server } from '@hapi/hapi';
+import { registerRequestsRoutes } from '../requests/requests.routes';
 import { registerLevelsRoutes } from '../levels/levels.routes';
 import { registerCoursesRoutes } from '../courses/courses.routes';
 
@@ -29,6 +30,7 @@ export const initServer = async (config): Promise<Server> => {
 
   await server.register(plugins);
 
+  registerRequestsRoutes(server);
   registerLevelsRoutes(server);
   registerCoursesRoutes(server);
 
