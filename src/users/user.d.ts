@@ -3,6 +3,8 @@ export type Employee = {
   name: string;
   phone: string;
   email: string;
+  password: string;
   company_name: string;
   created_at: string;
+  role: number;
 };
