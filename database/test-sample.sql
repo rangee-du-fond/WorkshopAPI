@@ -25,11 +25,11 @@ VALUES
     ('12f9ccdf-7aa0-4661-a198-b4e547f76a51', 'Lucie', '0707070707', 'lucie@tuta.io', 'STUDENT_3'),
     ('6f20fe7d-1cbd-4bc9-82f9-afc61fb1969c', 'Enzo', '0707070707', 'enzo@tuta.io', 'STUDENT_4');
 
-INSERT INTO public.meeting(id,description,date,id_course)
+INSERT INTO public.meeting(id,description,date,id_course,id_employee,id_student)
 VALUES
-    ('ba091675-766b-4796-8407-648c8bb4d83b', 'MEETING_1', '2020-04-16 09:54:25.862426+00', 'cbcdc0c0-088d-4a2a-9b75-fcc158f24eed'),
-    ('79ba0c6e-0298-42f2-a9c5-3a5d25e87e3d', 'MEETING_2', '2020-05-08 10:54:25.862426+00', 'a17ebf0d-d10e-4842-8960-3eba87659ad1'),
-    ('5de9a7fb-f1d7-4dc3-8218-85b65ecef704', 'MEETING_3', '2020-04-16 11:54:25.862426+00', 'b1056078-f329-4892-96d9-b42f16e12932'),
-    ('6f1ed765-5cca-4ec6-a530-9481cc15a1b6', 'MEETING_4', '2020-04-18 13:54:25.862426+00', '9e168199-8d81-48c7-a21f-41a1b85ab10f'),
-    ('33f00f8d-d4c9-4ad0-a3c6-f790d7726827', 'MEETING_5', '2020-05-16 19:54:25.862426+00', '9e168199-8d81-48c7-a21f-41a1b85ab10f'),
-    ('a6d944a2-25ac-4ad4-8942-fd280b388f73', 'MEETING_6', '2020-04-24 23:54:25.862426+00', 'a17ebf0d-d10e-4842-8960-3eba87659ad1');
+    ('ba091675-766b-4796-8407-648c8bb4d83b', 'MEETING_1', '2020-04-16 09:54:25.862426+00', 'cbcdc0c0-088d-4a2a-9b75-fcc158f24eed', 'e924108e-57ae-4b0e-9c23-f5540d7c91a3', '8a54c86f-1c6b-4117-9b6f-919923eadd65'),
+    ('79ba0c6e-0298-42f2-a9c5-3a5d25e87e3d', 'MEETING_2', '2020-05-08 10:54:25.862426+00', 'a17ebf0d-d10e-4842-8960-3eba87659ad1', 'e924108e-57ae-4b0e-9c23-f5540d7c91a3', 'bd793081-a155-4ac6-9be4-d00fe58f6bf8'),
+    ('5de9a7fb-f1d7-4dc3-8218-85b65ecef704', 'MEETING_3', '2020-04-16 11:54:25.862426+00', 'b1056078-f329-4892-96d9-b42f16e12932', 'ed449967-5c82-4737-b60a-5f11fb200d72', '6f20fe7d-1cbd-4bc9-82f9-afc61fb1969c'),
+    ('6f1ed765-5cca-4ec6-a530-9481cc15a1b6', 'MEETING_4', '2020-04-18 13:54:25.862426+00', '9e168199-8d81-48c7-a21f-41a1b85ab10f', 'e924108e-57ae-4b0e-9c23-f5540d7c91a3', '12f9ccdf-7aa0-4661-a198-b4e547f76a51'),
+    ('33f00f8d-d4c9-4ad0-a3c6-f790d7726827', 'MEETING_5', '2020-05-16 19:54:25.862426+00', '9e168199-8d81-48c7-a21f-41a1b85ab10f', 'ed449967-5c82-4737-b60a-5f11fb200d72', '8a54c86f-1c6b-4117-9b6f-919923eadd65'),
+    ('a6d944a2-25ac-4ad4-8942-fd280b388f73', 'MEETING_6', '2020-04-24 23:54:25.862426+00', 'a17ebf0d-d10e-4842-8960-3eba87659ad1', '8b24b094-574f-4c5b-b4d4-302a70de9f91', 'bd793081-a155-4ac6-9be4-d00fe58f6bf8');

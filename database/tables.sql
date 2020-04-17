@@ -82,8 +82,10 @@ CREATE TABLE request (
 CREATE TABLE meeting (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     description VARCHAR(200) NOT NULL,
-    date TIMESTAMP WITH TIME ZONE,
-    id_course UUID NOT NULL REFERENCES course(id)
+    date TIMESTAMP WITH TIME ZONE NOT NULL,
+    id_course UUID NOT NULL REFERENCES course(id),
+    id_employee UUID NOT NULL REFERENCES employee(id),
+    id_student UUID NOT NULL REFERENCES student(id)
 );
 
 CREATE TABLE preference (
