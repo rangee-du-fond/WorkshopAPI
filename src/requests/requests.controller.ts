@@ -6,7 +6,7 @@ export const getAllRequests = (): Promise<Request[]> => {
 };
 
 export const getRequestById = (requestId: string): Promise<Request> => {
-  const stmt = `SELECT * FROM request WHERE request.id = $1`;
+  const stmt = `SELECT * FROM request WHERE request.id = $1;`;
   return db.query(stmt, [requestId]).then(res => res.rows[0]);
 };
 
