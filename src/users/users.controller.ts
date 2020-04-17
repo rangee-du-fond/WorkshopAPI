@@ -1,10 +1,10 @@
-import type { Employee } from './user';
+import type { User } from './user';
 import type { Meeting } from '../meetings/meeting';
 import { db } from '../core/db';
 
-export const getUserById = (userId: string): Promise<Employee> => {
+export const getUserById = (userId: string): Promise<User> => {
   const stmt = `
-    SELECT id, name, phone, email, created_at
+    SELECT id, name, phone, email, description, id_role, created_at
     FROM scio_user
     WHERE id = $1;`;
   return db.query(stmt, [userId]).then(res => res.rows[0]);
@@ -17,6 +17,17 @@ export const getMeetingsByUserId = (userId: string): Promise<Meeting[]> => {
     WHERE id_employee = $1
     OR id_student = $1;`;
   return db.query(stmt, [userId]).then(res => res.rows);
+};
+
+export const findUserByCredentials = (
+  email: string,
+  password: string,
+): Promise<User | undefined> => {
+  const stmt = `
+    SELECT id, name, phone, email, description, id_role, created_at
+    FROM scio_user
+    WHERE email = $1 AND password = $2;`;
+  return db.query(stmt, [email, password]).then(res => res.rows[0]);
 };
 
 export const createUser = (

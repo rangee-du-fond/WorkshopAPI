@@ -1,5 +1,5 @@
 import { Server } from '@hapi/hapi';
-import { getUserById } from './users.controller';
+import { getUserById, findUserByCredentials } from './users.controller';
 import { createUser } from './users.controller';
 import { getMeetingsByUserId } from './users.controller';
 import Joi = require('@hapi/joi');
@@ -65,6 +65,28 @@ export const registerUsersRoutes = (server: Server) => {
         (req.payload as any).description,
         (req.payload as any).id_role,
       ).catch(console.error);
+    },
+  });
+
+  server.route({
+    method: 'POST',
+    path: '/users/connect',
+    options: {
+      tags: ['api'],
+      description: 'returns 400 status code if wrong (email, password), 200 otherwise',
+      validate: {
+        payload: Joi.object({
+          email: Joi.string().email().required(),
+          password: Joi.string().required(),
+        }),
+      },
+    },
+    handler: (req, h) => {
+      return findUserByCredentials((req.payload as any).email, (req.payload as any).password)
+        .then(user =>
+          !user ? h.response({ statusCode: 400, message: 'Not Authenticated' }).code(400) : user,
+        )
+        .catch(console.error);
     },
   });
 };
