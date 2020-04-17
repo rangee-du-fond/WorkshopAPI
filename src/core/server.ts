@@ -7,6 +7,7 @@ import { registerRequestsRoutes } from '../requests/requests.routes';
 import { registerMeetingsRoutes } from '../meetings/meetings.routes';
 import { registerLevelsRoutes } from '../levels/levels.routes';
 import { registerCoursesRoutes } from '../courses/courses.routes';
+import { registerUsersRoutes } from '../users/users.routes';
 
 export const initServer = async (config): Promise<Server> => {
   const server: Server = new Server({
@@ -35,6 +36,7 @@ export const initServer = async (config): Promise<Server> => {
   registerMeetingsRoutes(server);
   registerLevelsRoutes(server);
   registerCoursesRoutes(server);
+  registerUsersRoutes(server);
 
   return server;
 };
