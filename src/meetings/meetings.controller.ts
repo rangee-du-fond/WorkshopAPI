@@ -2,7 +2,7 @@ import type { Meeting } from './meeting';
 import { db } from '../core/db';
 
 export const getMeetingById = (meetingId: string): Promise<Meeting> => {
-  const stmt = `SELECT * FROM meeting WHERE meeting.id = $1`;
+  const stmt = `SELECT * FROM meeting WHERE meeting.id = $1;`;
   return db.query(stmt, [meetingId]).then(res => res.rows[0]);
 };
 
