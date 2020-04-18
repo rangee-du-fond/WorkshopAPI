@@ -3,6 +3,7 @@ import { getUserById, findUserByCredentials } from './users.controller';
 import { createUser } from './users.controller';
 import { getMeetingsByUserId } from './users.controller';
 import Joi = require('@hapi/joi');
+import { findCourseById } from '../courses/courses.controller';
 
 export const registerUsersRoutes = (server: Server) => {
   server.route({
@@ -34,8 +35,19 @@ export const registerUsersRoutes = (server: Server) => {
         }),
       },
     },
-    handler: (req, h) => {
-      return getMeetingsByUserId(req.params.userId).catch(console.error);
+    handler: async req => {
+      const meetings = await getMeetingsByUserId(req.params.userId);
+      return Promise.all(
+        meetings.map(async meeting => {
+          console.log(meeting);
+          return {
+            ...meeting,
+            course: await findCourseById(meeting.id_course),
+            employee: await getUserById(meeting.id_employee),
+            student: await getUserById(meeting.id_student),
+          };
+        }),
+      );
     },
   });
 
