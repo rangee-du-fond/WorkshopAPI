@@ -19,7 +19,7 @@ CREATE TABLE role(
 INSERT INTO role
 VALUES
   (0, 'Employee'),
-  (1, 'Etudiant');
+  (1, 'Student');
 
 
 CREATE TABLE scio_user (

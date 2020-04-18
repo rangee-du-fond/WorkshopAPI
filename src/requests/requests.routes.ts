@@ -4,6 +4,8 @@ import { getRequestById } from './requests.controller';
 import { createRequest } from './requests.controller';
 import { deleteRequest } from './requests.controller';
 import Joi = require('@hapi/joi');
+import { findCourseById } from '../courses/courses.controller';
+import { getUserById } from '../users/users.controller';
 
 export const registerRequestsRoutes = (server: Server) => {
   server.route({
@@ -30,8 +32,14 @@ export const registerRequestsRoutes = (server: Server) => {
         }),
       },
     },
-    handler: (req, h) => {
-      return getRequestById(req.params.requestId).catch(console.error);
+    handler: async (req, h) => {
+      const request = await getRequestById(req.params.requestId).catch(console.error);
+      if (!request) return h.response({ statusCode: 404, message: 'Not found' }).code(404);
+      return {
+        ...request,
+        course: await findCourseById(request.id_course),
+        employee: await getUserById(request.id_employee),
+      };
     },
   });
 
