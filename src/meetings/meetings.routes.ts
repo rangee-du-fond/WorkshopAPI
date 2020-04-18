@@ -3,6 +3,8 @@ import { getMeetingById } from './meetings.controller';
 import { createMeeting } from './meetings.controller';
 import { deleteMeeting } from './meetings.controller';
 import Joi = require('@hapi/joi');
+import { getUserById } from '../users/users.controller';
+import { findCourseById } from '../courses/courses.controller';
 
 export const registerMeetingsRoutes = (server: Server) => {
   server.route({
@@ -17,8 +19,15 @@ export const registerMeetingsRoutes = (server: Server) => {
         }),
       },
     },
-    handler: (req, h) => {
-      return getMeetingById(req.params.meetingId).catch(console.error);
+    handler: async (req, h) => {
+      const meeting = await getMeetingById(req.params.meetingId).catch(console.error);
+      if (!meeting) return h.response({ statusCode: 404, message: 'Not found' }).code(404);
+      return {
+        ...meeting,
+        employee: await getUserById(meeting.id_employee),
+        student: await getUserById(meeting.id_student),
+        course: await findCourseById(meeting.id_course),
+      };
     },
   });
 

@@ -1,6 +1,6 @@
 INSERT INTO public.scio_user (id,name,phone,email,password,description, id_role)
 VALUES
-    ('8b24b094-574f-4c5b-b4d4-302a70de9f91', 'Michel', '0909090909', 'michel@gmail.com','pass','EMPLOYEE_1', 0),
+    ('6d7ff6b5-d7b1-494e-92ca-807236e8d701', 'Michel', '0909090909', 'michel@auchan.com','pass','EMPLOYEE_1', 0),
     ('e924108e-57ae-4b0e-9c23-f5540d7c91a3', 'George', '0909090909', 'georgie@gmail.com','pass', 'EMPLOYEE_2', 0),
     ('39eff212-7ecd-4d7e-9041-66f1863a3da6', 'Mickael', '0909090909', 'mick@gmail.com','pass', 'EMPLOYEE_3', 0),
     ('7f2d5d2b-5ca3-4255-8efb-3b303d243bb3', 'Julie', '0909090909', 'jul@gmail.com','pass', 'EMPLOYEE_4', 0),
